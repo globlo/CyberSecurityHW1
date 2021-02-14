@@ -1,24 +1,54 @@
 #!/usr/bin/env python3
-
-import sys
-import traceback
+#import crypto_util
+from base64 import b64encode
+from base64 import b64decode
 import Crypto.Cipher
+#from crypto import Crypto
+import binascii
+
+from Crypto.Util.Padding import unpad
+from Crypto.Random import get_random_bytes
+from Crypto.Util.Padding import pad, unpad
+from hashlib import md5
+
+import binascii
+import math
+import sys
+from Crypto.Cipher import AES
+from Crypto import Random
+from Crypto.Util import Counter
+
 # BEGIN SOLUTION
 # please import only standard modules and make sure that your code compiles and runs without unhandled exceptions 
+from Crypto.Cipher import AES
+#iv = '0000000000000000'.encode('utf-8')
+
 # END SOLUTION
 
 
 def problem_1():
-    with open("cipher1.bin", "rb") as cipher_file:
-        cipher_text = cipher_file.read()
-
+    with open("cipher1.bin", "rb") as cipher_file:  # rb means "read only in binary"
+        cipher_text = cipher_file.read() # byte
+    #print(cipher_text)
     # BEGIN SOLUTION
-    key = bytes([0] * 16)
+    iv=bytearray(16)
+    print(iv)
+    #key = bytes([0] * 16)
+    rList = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    key = bytearray(rList)
+
     plain_text = cipher_text
+    print(key)
+    
+    aes = AES.new(key, AES.MODE_CBC, iv)
+    decd = aes.decrypt(cipher_text)
+    print(decd)
+
     # END SOLUTION
 
     with open("plain1.txt", "wb") as plain_file:
         plain_file.write(plain_text)
+
 
 
 def problem_2():

@@ -1,0 +1,13 @@
+
+pip install program
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install python3-pip
+sudo pip3
+
+pip3 install pycrypto
+pip3 install pycryptodome
+ python3 HW1.py
+
+
+ https://xtech.nikkei.com/atcl/nxt/keyword/18/00002/030800119/
