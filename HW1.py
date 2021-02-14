@@ -36,14 +36,13 @@ def problem_1():
     #key = bytes([0] * 16)
     rList = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
     key = bytearray(rList)
-
-    plain_text = cipher_text
     print(key)
-    
+        
     aes = AES.new(key, AES.MODE_CBC, iv)
     decd = aes.decrypt(cipher_text)
     print(decd)
 
+    plain_text = decd
     # END SOLUTION
 
     with open("plain1.txt", "wb") as plain_file:
