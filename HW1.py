@@ -32,10 +32,9 @@ def problem_1():
     #print(cipher_text)
     # BEGIN SOLUTION
     iv=bytearray(16)
-    #key = bytes([0] * 16)
-    rList = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
-    key = bytearray(rList)
-    #print(key)
+    key = bytearray([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16])
+    print(iv)
+    print(key)
         
     aes = AES.new(key, AES.MODE_CBC, iv)
     decd = aes.decrypt(cipher_text)
@@ -127,7 +126,11 @@ def problem_4():
         cipher_text_b = cipher_file.read()
 
     # BEGIN SOLUTION
-    plain_text_b = cipher_text_b
+    # p1 xor c1 xor c2 = p2
+    plain_text_b = bytes([ a ^ b ^ c for (a,b,c) in zip(bytes(plain_text_a), bytes(cipher_text_a), bytes(cipher_text_b)) ])
+    print(plain_text_b)
+
+
     # END SOLUTION
 
     with open("plain4B.txt", "wb") as plain_file:
