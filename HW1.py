@@ -1,28 +1,10 @@
-#!/usr/bin/env python3
-#import crypto_util
-from base64 import b64encode
-from base64 import b64decode
-import Crypto.Cipher
-#from crypto import Crypto
-import binascii
 
-from Crypto.Util.Padding import unpad
-from Crypto.Random import get_random_bytes
-from Crypto.Util.Padding import pad, unpad
-from hashlib import md5
-
-import binascii
-import math
 import sys
-from Crypto.Cipher import AES
-from Crypto import Random
-from Crypto.Util import Counter
-from itertools import permutations
-
+import traceback
+import Crypto.Cipher
 # BEGIN SOLUTION
 # please import only standard modules and make sure that your code compiles and runs without unhandled exceptions 
 from Crypto.Cipher import AES
-
 # END SOLUTION
 
 
